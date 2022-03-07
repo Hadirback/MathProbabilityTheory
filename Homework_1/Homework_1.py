@@ -49,3 +49,18 @@ print(combinations(50, 2) * combinations(10, 1) / combinations(60, 3))
 Вопрос: какова вероятность, что вы действительно больны ей?
 '''
 
+# Вероятность что человек болен (0.1% населения) = 0.001
+P_disease = 0.001
+# Вероятность что тест верно выявил больного (99%) = 0.99
+P_testDisease_disease = 0.99
+# Вероятность что тест выявил болезнь у здорового (1%) = 0.01
+P_testDisease_healthy = 0.01
+# Верятность что человек в принципе здоров
+P_healthy = 0.999
+# Формула полной вероятности где в качестве Ai используется healthy и disease
+# Верятность нахождения болезни
+P_testDisease = P_testDisease_healthy * P_healthy + P_testDisease_disease * P_disease
+# Вероятность что человек реально болеет
+P_disease_testDisease = P_disease * P_testDisease_disease / P_testDisease
+# 9% людей у которых обследование показало болен на самом деле больные люди
+print(P_disease_testDisease)
